@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سوپر مارکت مرکزی</title>
+    <link rel="stylesheet" href="./build/tailwind.css" />
+  </head>
+  <body class="bg-[url('../../assets/images/superMarketBg.jpg')] bg-cover print:bg-none">
+    <main class="container flex flex-col justify-center items-center my-7 gap-y-4">
+      <header class="bg-white p-6 rounded-lg w-full lg:w-4/5 flex items-center justify-center shadow shadow-white">
+        <p class="font-bold text-xs md:text-lg text-center">سیستم محاسبه مبلغ سفارش سوپر مارکت مرکزی</p>
+      </header>
+       <section class="w-full lg:w-4/5 flex flex-col justify-center bg-white text-slate-800 text-base rounded-lg shadow shadow-white p-2">
+         <form id="products" onsubmit="return false" method="get" class="print:hidden">
+          <div class="flex flex-col md:flex-row gap-y-2 md:gap-y-0 md:items-center print:block">
+            <label class="w-full md:w-2/5 ml-2">نام مشتری : <span class="text-red-500 ml-2">*</span></label>
+            <input type="text" name="customerName" id="customerName" placeholder="لطفا نام مشتری را وارد نمایید" required autofocus>
+          </div>
+          <p class="w-full h-px bg-gray-200 my-6"><p>
+          <div class="flex flex-col md:flex-row gap-y-2 md:items-center mb-2">
+            <label class="w-full md:w-2/5 ml-2">نام محصول : <span class="text-red-500 ml-2">*</span></label>
+            <input type="text" name="productName" id="productName" placeholder="لطفا نام محصول را وارد نمایید" required>
+          </div>
+          <div class="flex flex-col md:flex-row gap-y-2 md:items-center mb-2">
+            <label class="w-full md:w-2/5 ml-2">فی محصول : <span class="text-red-500 ml-2">*</span></label>
+             <input type="text" name="productPrice" id="productPrice" placeholder="لطفا فی محصول را وارد نمایید" required class="mb-2">
+           </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-y-2 md:items-center mb-2">
+            <label class="w-full md:w-2/5 ml-2">تعداد محصول : <span class="text-red-500 ml-2">*</span></label>
+              <input type="text" name="productQTY" id="productQTY" placeholder="لطفا تعداد محصول را وارد نمایید" required class="mb-2">
+          </div>
+          <div class="flex flex-row justify-end items-center my-3">
+           <div class="ml-3">
+             <button type="submit" id="productSubmitBtn" name="productSubmitBtn" class="bg-orange-500 text-white text-lg rounded-md px-4 py-2 hover:bg-white hover:text-orange-500 hover:border-2 hover:border-solid hover:border-orange-500 transition-all duration-500"> <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-6 md:w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+</svg> ثبت  </button>
+           </div>
+            <div>
+              <a href="#" class="bg-orange-500 text-white text-lg rounded-md px-4 py-2 hover:bg-white hover:text-orange-500 hover:border-2 hover:border-solid hover:border-orange-500 transition-all duration-500 text-center" onclick="window.print();"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-6 md:w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+</svg> چاپ فاکتور</a>
+            </div>
+          </div>
+        </form>
+         <div class="text-center bg-slate-800 py-4 rounded-md hidden print:block">
+    <p id="showCustomerName" class="text-white text-bold text-lg"></p>
+  </div>
+   <p class="w-full h-px bg-gray-200 my-6"></p>
+    <table class="text-xs w-full md:text-base border-separate border rounded-md border-slate-500 my-5 text-center">
+  <thead>
+    <tr class="odd:bg-white even:bg-slate-100">
+      <th class="border border-white bg-slate-800 text-white p-2 rounded-md">محصول</th>
+      <th class="border border-white bg-slate-800 text-white p-2 rounded-md">قیمت</th>
+      <th class="border border-white bg-slate-800 text-white p-2 rounded-md">تعداد</th>
+      <th class="border border-white bg-slate-800 text-white p-2 rounded-md">مجموع</th>
+    </tr>
+  </thead>
+  <tbody id="invoiceBody">
+
+  </tbody>
+</table>
+  <div class="text-center bg-slate-800 py-4 rounded-md">
+    <p id="sum" class="text-white text-bold text-lg"></p>
+  </div>
+       </section>
+
+    </main>
+
+    <script src="../src/js/superMarket.js"></script>
+  </body>
+</html>
